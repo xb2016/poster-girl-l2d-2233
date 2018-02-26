@@ -60,6 +60,9 @@ function plugin_l2d_option_page(){
 //MAIN
 add_action('wp_footer','l2d_main');
 function l2d_main(){
+    echo '<div class="l2d_xb">';
+    if(get_option(plugin_l2d_fa)==1) wp_enqueue_style('awesome',l2d_URL.'/css/font-awesome.min.css',array(),'4.7.1');
+    wp_enqueue_style('waifu',l2d_URL.'/css/waifu.min.css',array(),'1.1');
     echo '
     <div class="waifu">
         <div class="waifu-tips"></div>
@@ -73,18 +76,11 @@ function l2d_main(){
             <span class="fa fa-info-circle"></span>
             <span class="fa fa-close"></span>
         </div>
-    </div>
-    ';
-}
-add_action('wp_enqueue_scripts','l2d_scripts');
-function l2d_scripts(){
-    if(!is_admin()){
-        if(get_option(plugin_l2d_fa)==1) wp_enqueue_style('awesome',l2d_URL.'/css/font-awesome.min.css',array(),'4.7.1');
-        wp_enqueue_style('waifu',l2d_URL.'/css/waifu.min.css',array(),'1.1');
-        if(get_option(plugin_l2d_jq)==1) wp_enqueue_script('jquery',l2d_URL.'/js/jquery.min.js',array(),'2.1.4');
-        wp_enqueue_script('live2d',l2d_URL.'/js/live2d.js',array(),'r3');
-        wp_enqueue_script('waifu',l2d_URL.'/js/waifu-tips.js',array(),'1.1');
-    }
+    </div>';
+    if(get_option(plugin_l2d_jq)==1) wp_enqueue_script('jquery',l2d_URL.'/js/jquery.min.js',array(),'2.1.4');
+    wp_enqueue_script('live2d',l2d_URL.'/js/live2d.js',array(),'r3');
+    wp_enqueue_script('waifu',l2d_URL.'/js/waifu-tips.js',array(),'1.1');
     $d2l2d = array('xb'=>l2d_URL);
     wp_localize_script('waifu','l2d',$d2l2d);
+echo '</div>';
 }
