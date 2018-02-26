@@ -4,7 +4,7 @@ Plugin Name: live2d看板娘(2233)
 Plugin URI: https://github.com/xb2016/poster-girl-l2d-2233
 Description: 2233娘的live2d看板娘插件(WordPress)，支持换人换装！如果觉得本插件还OK的话，请访问下面的插件主页，给我一个star，谢谢！
 Author: 小白-白
-Version: 1.1
+Version: 1.2
 Author URI: https://www.fczbl.vip
 */
 
@@ -58,11 +58,11 @@ function plugin_l2d_option_page(){
     </div><?php        
 }
 //MAIN
-add_action('wp_footer','l2d_main');
+if(!wp_is_mobile()) add_action('wp_footer','l2d_main');
 function l2d_main(){
     echo '<div class="l2d_xb">';
-    if(get_option(plugin_l2d_fa)==1) wp_enqueue_style('awesome',l2d_URL.'/css/font-awesome.min.css',array(),'4.7.1');
-    wp_enqueue_style('waifu',l2d_URL.'/css/waifu.min.css',array(),'1.1');
+    if(get_option(plugin_l2d_fa)==1) echo '<link rel="stylesheet" href="'.l2d_URL.'/css/font-awesome.min.css" type="text/css">';
+    echo '<link rel="stylesheet" href="'.l2d_URL.'/css/waifu.min.css" type="text/css">';
     echo '
     <div class="waifu">
         <div class="waifu-tips"></div>
@@ -82,5 +82,5 @@ function l2d_main(){
     wp_enqueue_script('waifu',l2d_URL.'/js/waifu-tips.js',array(),'1.1');
     $d2l2d = array('xb'=>l2d_URL);
     wp_localize_script('waifu','l2d',$d2l2d);
-echo '</div>';
+    echo '</div>';
 }
