@@ -62,8 +62,7 @@ if(!wp_is_mobile()) add_action('wp_footer','l2d_main');
 function l2d_main(){
     echo '<div class="l2d_xb">';
     if(get_option(plugin_l2d_fa)==1) echo '<link rel="stylesheet" href="'.l2d_URL.'/css/font-awesome.min.css" type="text/css">';
-    echo '<link rel="stylesheet" href="'.l2d_URL.'/css/waifu.min.css" type="text/css">';
-    echo '
+    echo '<link rel="stylesheet" href="'.l2d_URL.'/css/waifu.min.css" type="text/css">
     <div class="waifu">
         <div class="waifu-tips"></div>
         <canvas id="live2d" width="230" height="250" class="live2d"></canvas>
@@ -77,10 +76,10 @@ function l2d_main(){
             <span class="fa fa-close"></span>
         </div>
     </div>';
-    if(get_option(plugin_l2d_jq)==1) wp_enqueue_script('jquery',l2d_URL.'/js/jquery.min.js',array(),'2.1.4');
-    wp_enqueue_script('live2d',l2d_URL.'/js/live2d.js',array(),'r3');
+    if(get_option(plugin_l2d_jq)==1) echo '<script type="text/javascript" src="'.l2d_URL.'/js/jquery.min.js"></script>';
+    echo '<script type="text/javascript" src="'.l2d_URL.'/js/live2d.js"></script>
+    </div>';
     wp_enqueue_script('waifu',l2d_URL.'/js/waifu-tips.js',array(),'1.1');
     $d2l2d = array('xb'=>l2d_URL);
     wp_localize_script('waifu','l2d',$d2l2d);
-    echo '</div>';
 }
