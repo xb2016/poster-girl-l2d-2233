@@ -28,7 +28,7 @@ $('.waifu-tool .fa-info-circle').click(function (){
 $('.waifu-tool .fa-close').click(function(){
     sessionStorage.setItem('waifu-dsiplay','none');
     showMessage('愿你有一天能与重要的人重逢',2000);
-    window.setTimeout(function(){$('.waifu').hide();},1500);
+    window.setTimeout(function(){$('.waifu').hide();},1000);
 });
 $('.waifu-tool .fa-camera').click(function(){
     showMessage('照好了嘛，是不是很可爱呢？',8000);
@@ -93,18 +93,11 @@ function showMessage(a,b){
         }
     }
     $(".waifu").animate({top:$(window).height()-250},800);
-    var f = $(".waifu").offset().top;
-    $(window).scroll(function(){
-        $(".waifu").animate({
-            top:$(window).scrollTop()+f+360
-        },
-        {
-            queue:false,
-            duration:1000
-        });
-    });
     showMessage(text,8000);
 })();
+$(window).resize(function(){
+    $(".waifu").css('top',window.innerHeight-250);
+});
 $("#live2d").mouseover(function(){
     msgs = ["你要干嘛呀？","鼠…鼠标放错地方了！","喵喵喵？","萝莉控是什么呀？","怕怕","你看到我的小熊了吗"];
     var i = Math.floor(Math.random()*msgs.length);
@@ -204,77 +197,81 @@ jQuery(document).ready(function($){
     $("#author").click(function(){
         showMessage("留下你的尊姓大名！");
         $(".waifu").animate({
-            top:$("#author").offset().top-130,
+            top:$("#author").offset().top-$(window).scrollTop()-130,
             left:$("#author").offset().left-200
         },
         {
             queue:false,
-            duration:1000
+            duration:800
         });
     });
     $("#email").click(function () {
         showMessage("留下你的邮箱，不然就是无头像人士了！");
         $(".waifu").animate({
-            top:$("#email").offset().top-130,
+            top:$("#email").offset().top-$(window).scrollTop()-130,
             left:$("#email").offset().left-200
         },
         {
             queue:false,
-            duration:1000
+            duration:800
         });
     });
     $("#url").click(function(){
         showMessage("快快告诉我你的家在哪里，好让我去参观参观！");
         $(".waifu").animate({
-            top:$("#url").offset().top-130,
+            top:$("#url").offset().top-$(window).scrollTop()-130,
             left:$("#url").offset().left-200
         },
         {
             queue:false,
-            duration:1000
+            duration:800
         });
     });
     $("#comment").click(function(){
         showMessage("一定要认真填写喵~");
         $(".waifu").animate({
-            top:$("#comment").offset().top-90,
+            top:$("#comment").offset().top-$(window).scrollTop()-90,
             left:$("#comment").offset().left-170
         },
         {
             queue:false,
-            duration:1000
+            duration:800
         });
     });
 });
 jQuery(document).ready(function($){
-    window.setInterval(function(){
-        var temp = Math.random();
-        if(temp>0.35){
-            showMessage(showHitokoto());
-        }else{
-            msgs = ["乾坤大挪移！","我飘过来了！~","我飘过去了","我得意地飘！~飘！~"];
-            var i = Math.floor(Math.random()*msgs.length);
-            s = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.75,-0.1,-0.2,-0.3,-0.4,-0.5,-0.6,-0.7,-0.75];
-            var i1 = Math.floor(Math.random()*s.length);
-            var i2 = Math.floor(Math.random()*s.length);
+    if(l2d.move==1){
+        window.setInterval(function(){
+            var temp = Math.random();
+            if(temp>0.35){
+                showMessage(showHitokoto());
+            }else{
+                msgs = ["乾坤大挪移！","我飘过来了！~","我飘过去了","我得意地飘！~飘！~"];
+                var i = Math.floor(Math.random()*msgs.length);
+                s = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.75,-0.1,-0.2,-0.3,-0.4,-0.5,-0.6,-0.7,-0.75];
+                var i1 = Math.floor(Math.random()*s.length);
+                var i2 = Math.floor(Math.random()*s.length);
                 $(".waifu").animate({
-                    left:document.body.offsetWidth/2*(1+s[i1]),
-                    top:(window.innerHeight+$(window).scrollTop()-300)-(window.innerHeight-270)/2*(1+s[i2])
-                },
-                {
+                    left:(document.body.offsetWidth-210)/2*(1+s[i1]),
+                    top:(window.innerHeight-240)-(window.innerHeight-240)/2*(1+s[i2])
+               },
+               {
                     duration:2000,
                     complete:showMessage(msgs[i])
                 });
-        }
-    },40000);
+            }
+        },40000);
+    }else{
+        window.setInterval(function(){showMessage(showHitokoto());},25000);
+    }
     var stat_click = 0;
     $("#live2d").click(function(){
         if(!ismove){
             stat_click++;
-            if (stat_click>6) {
+            if(stat_click>6) {
                 msgs = ["你有完没完呀？","你已经摸我"+stat_click+"次了","非礼呀！救命！","OH，My ladygaga","110吗，这里有个变态一直在摸我(ó﹏ò｡)"];
                 var i = Math.floor(Math.random()*msgs.length);
-            } else {
+            }else{
                 msgs = ["是…是不小心碰到了吧","我跑呀跑呀跑！~~","再摸的话我可要报警了！⌇●﹏●⌇","别摸我，有什么好摸的！","惹不起你，我还躲不起你么？","不要摸我了，我会告诉老婆来打你的！","干嘛动我呀！小心我咬你！"];
                 var i = Math.floor(Math.random()*msgs.length);
             }
@@ -282,8 +279,8 @@ jQuery(document).ready(function($){
         var i1 = Math.floor(Math.random()*s.length);
         var i2 = Math.floor(Math.random()*s.length);
             $(".waifu").animate({
-            left:document.body.offsetWidth/2*(1+s[i1]),
-            top:(window.innerHeight+$(window).scrollTop()-300)-(window.innerHeight-270)/2*(1-s[i2])
+            left:(document.body.offsetWidth-210)/2*(1+s[i1]),
+            top:(window.innerHeight-240)-(window.innerHeight-240)/2*(1-s[i2])
             },
             {
                 duration:500,

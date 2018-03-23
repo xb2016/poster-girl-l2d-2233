@@ -26,10 +26,9 @@ if($_GET['model']==='rand') echo '{
         "body_y":[0.3, -0.9]
     },
     "layout":{
-        "center_x":-0.1,
-        "center_y":0.0,
-        "width":2.4,
-        "height":2.4
+        "center_x":-0.2,
+        "center_y":0.2,
+        "height":3.4
     },
     "motions":{
         "idle":[
