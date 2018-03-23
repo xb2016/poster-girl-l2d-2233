@@ -92,9 +92,10 @@ function showMessage(a,b){
             text = '欢迎阅读<span style="color:#0099cc;">『'+document.title.split(' - ')[0]+'』</span>';
         }
     }
-    $(".waifu").animate({top:$(window).height()-250},800);
+    if(l2d.mobile==1){$(".waifu").animate({top:$(window).height()-250},800);}else{$(".waifu").animate({top:$(window).height()-150},800);}
     showMessage(text,8000);
 })();
+if(l2d.mobile==1){
 $(window).resize(function(){
     $(".waifu").css('top',window.innerHeight-250);
 });
@@ -318,3 +319,4 @@ jQuery(document).ready(function($){
         _move = false;
     });
 });
+}
