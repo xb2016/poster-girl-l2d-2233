@@ -54,8 +54,8 @@ function plugin_l2d_option_page(){
 //MAIN
 if(!wp_is_mobile()||get_option('plugin_l2d_mobile')) add_action('wp_footer','l2d_main');
 function l2d_main(){
-    if(wp_is_mobile()) $l2d_w = 100; else $l2d_w = 160;
-    if(wp_is_mobile()) $l2d_h = 150; else $l2d_h = 220;
+    if(wp_is_mobile()) $l2d_w = 130; else $l2d_w = 220;
+    if(wp_is_mobile()) $l2d_h = 150; else $l2d_h = 250;
     if(!wp_is_mobile()||!get_option('plugin_l2d_mobile')) $mobi = 1;
     echo '<div class="l2d_xb">
     ';
