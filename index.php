@@ -4,7 +4,7 @@ Plugin Name: live2d看板娘(2233)
 Plugin URI: https://github.com/xb2016/poster-girl-l2d-2233
 Description: 2233娘的live2d看板娘插件(WordPress)，支持换人换装！如果觉得本插件还OK的话，请访问下面的插件主页，给我一个star，谢谢！
 Author: 小白-白
-Version: 1.3
+Version: 1.4
 Author URI: https://www.fczbl.vip
 */
 
@@ -34,7 +34,7 @@ function plugin_l2d_option_page(){
                    <h3>设置</h3>
                    <h4>随机移动</h4>
                    <input type="text" size="3" maxlength="1" value="<?php echo(get_option('plugin_l2d_move')); ?>" name="move" />是否允许看板娘自动移动：1是，0否<br />
-                   <h4>移动端加载</h4>
+                   <h4>移动端加载(不建议)</h4>
                    <input type="text" size="3" maxlength="1" value="<?php echo(get_option('plugin_l2d_mobile')); ?>" name="mobile" />移动端是否加载：1是，0否<br />
                    <h3>环境</h3>
                    <p>本插件需要 jQuery 库与 Font Awesome 4.7 支持，如果你的主题没有引用上述项目，请选择加载。</p><br />
