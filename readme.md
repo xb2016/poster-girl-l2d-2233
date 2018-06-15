@@ -3,6 +3,11 @@
 
 [Demo: https://www.fczbl.vip/946.html](https://www.fczbl.vip/946.html)
 
+## 警告
+最新的1.5版本存在R18内容，请慎重选择版本进行下载安装
+
+本人不对插件造成的任何影响/后果负责
+
 ## 使用方法
 1. Star 本项目
 
