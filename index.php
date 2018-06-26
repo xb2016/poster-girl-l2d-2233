@@ -4,7 +4,7 @@ Plugin Name: live2d看板娘(2233)
 Plugin URI: https://github.com/xb2016/poster-girl-l2d-2233
 Description: 2233娘的live2d看板娘插件(WordPress)，支持换人换装！如果觉得本插件还OK的话，请访问下面的插件主页，给我一个star，谢谢！
 Author: 小白-白
-Version: 1.4
+Version: 1.6
 Author URI: https://www.fczbl.vip
 */
 
