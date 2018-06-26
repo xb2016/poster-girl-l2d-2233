@@ -292,31 +292,38 @@ jQuery(document).ready(function($){
         }
     });
 });
-var _move = false;
 var ismove = false;
-var _x, _y;
 jQuery(document).ready(function($){
-    $(".waifu").mousedown(function(e){
-        _move = true;
-        _x = e.pageX-parseInt($(".waifu").css("left"));
-        _y = e.pageY-parseInt($(".waifu").css("top"));
-     });
-    $(document).mousemove(function(e){
-        if(_move){
-            var x = e.pageX-_x; 
-            var y = e.pageY-_y;
-            var wx = $(window).width()-$('.waifu').width();
-            var dy = $(document).height()-$('.waifu').height();
-            if(x>=0&&x<=wx&&y>0&&y<=dy){
-                $(".waifu").css({
-                    top:y,
-                    left:x
-                });
-            ismove = true;
+    var box=$('.waifu')[0];
+    var topCount = 20; //对话框偏移量
+    box.onmousedown=function(e){
+        var Ox=e.offsetX;   
+        var Oy=e.offsetY;
+        var Ch=document.documentElement.clientHeight;
+        var Cw=document.documentElement.clientWidth;
+        document.onmousemove=function(e){
+            var Cx=e.clientX;
+            var Cy=e.clientY;
+            box.style.left=Cx-Ox+"px";
+            box.style.top=Cy-Oy+"px";
+            if(box.offsetLeft<0){
+                box.style.left=0;
             }
+            else if(box.offsetLeft+box.offsetWidth>Cw){
+                box.style.left=Cw-box.offsetWidth+"px";
+            }
+            if(box.offsetTop-topCount<0){
+                box.style.top=topCount+"px";
+            }
+            else if(box.offsetTop+box.offsetHeight-topCount>Ch){
+                box.style.top=Ch-(box.offsetHeight-topCount)+"px";
+            }
+            ismove = true;
+        };
+        document.onmouseup=function(e){
+            document.onmousemove = null;
+            document.onmouseup = null;
         }
-    }).mouseup(function(){
-        _move = false;
-    });
+    }
 });
 }
