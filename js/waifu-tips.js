@@ -320,6 +320,7 @@ jQuery(document).ready(function($){
             else if(box.offsetTop+box.offsetHeight-topCount>Ch){
                 box.style.top=Ch-(box.offsetHeight-topCount)+"px";
             }
+            ismove = true
         };
         document.onmouseup=function(e){
             document.onmousemove = null;
