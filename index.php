@@ -59,7 +59,7 @@ function l2d_main(){
     if(!wp_is_mobile()||!get_option('plugin_l2d_mobile')) $mobi = 1;
     echo '<div class="l2d_xb">
     ';
-    if(get_option(plugin_l2d_fa)==1) echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xb2016/kratos-pjax@0.1.0/css/font-awesome.min.css" type="text/css">
+    if(get_option('plugin_l2d_fa')) echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xb2016/kratos-pjax@0.1.0/css/font-awesome.min.css" type="text/css">
     ';
     echo '<link rel="stylesheet" href="'.l2d_URL.'/css/waifu.min.css" type="text/css">
     <div class="waifu">
@@ -76,7 +76,7 @@ function l2d_main(){
         </div>
     </div>
     ';
-    if(get_option(plugin_l2d_jq)==1) echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xb2016/kratos-pjax@0.1.0/js/jquery.min.js"></script>
+    if(get_option('plugin_l2d_jq')) echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xb2016/kratos-pjax@0.1.0/js/jquery.min.js"></script>
     ';
     echo '<script type="text/javascript" src="'.l2d_URL.'/js/live2d.js"></script>
 </div>
