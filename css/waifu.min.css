@@ -9,4 +9,4 @@
 .waifu-tool .fa-street-view,.waifu-tool .fa-close{font-size:22px}
 .waifu-tool span:hover{color:#34495e}
 .waifu #live2d{position:absolute;cursor:move;left:3%;bottom:0}
-@media(max-width:530px){.waifu-tips,.waifu-tool{display:none!important}.waifu #live2d{left:0}}
+@media(max-width:530px){.l2d_xb.mh{display:none}.waifu-tips,.waifu-tool{display:none!important}.waifu #live2d{left:0}}

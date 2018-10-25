@@ -6,7 +6,7 @@ $('.waifu-tool .fa-home').click(function(){
 });
 var model_p = 22;
 $('.waifu-tool .fa-drivers-license-o').click(function(){
-    loadlive2d('live2d',l2d.xb+'/model/api.php?p='+model_p+'&model=rand');
+    loadlive2d('live2d',l2d.xb+'/model/api.php?p='+model_p+'&model=rand&r18='+l2d.r18);
     if(model_p===22){
         model_p = 33;
         showMessage('33援交有点累了，现在该我上场了',4000);
@@ -19,7 +19,7 @@ $('.waifu-tool .fa-comments').click(function(){
     showHitokoto();
 });
 $('.waifu-tool .fa-street-view').click(function (){
-    if(model_p===22) loadlive2d('live2d',l2d.xb+'/model/api.php?p=33&model=rand'); else loadlive2d('live2d',l2d.xb+'/model/api.php?p=22&model=rand');
+    if(model_p===22) loadlive2d('live2d',l2d.xb+'/model/api.php?p=33&model=rand&r18='+l2d.r18); else loadlive2d('live2d',l2d.xb+'/model/api.php?p=22&model=rand&r18='+l2d.r18);
     showMessage('我的新衣服好看嘛',4000);
 });
 $('.waifu-tool .fa-info-circle').click(function (){
@@ -35,9 +35,9 @@ $('.waifu-tool .fa-camera').click(function(){
     window.Live2D.captureName = 'pic.png';
     window.Live2D.captureFrame = true;
 });
-loadlive2d('live2d',l2d.xb+'/model/api.php?p=33&model=default');
+loadlive2d('live2d',l2d.xb+'/model/api.php?p=33&model=default&r18='+l2d.r18);
 function showHitokoto(){
-    $.post("https://www.fczbl.vip/api/hitokoto/",function(result){
+    $.post("https://api.fczbl.vip/hitokoto/",function(result){
         showMessage(result);
     });
 }
