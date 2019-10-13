@@ -23,7 +23,7 @@ $('.waifu-tool .fa-street-view').click(function (){
     showMessage('我的新衣服好看嘛',4000);
 });
 $('.waifu-tool .fa-info-circle').click(function (){
-    window.open('https://www.fczbl.vip/946.html');
+    window.open('https://moedog.org/946.html');
 });
 $('.waifu-tool .fa-close').click(function(){
     sessionStorage.setItem('waifu-dsiplay','none');
@@ -37,7 +37,7 @@ $('.waifu-tool .fa-camera').click(function(){
 });
 loadlive2d('live2d',l2d.xb+'/model/api.php?p=33&model=default&r18='+l2d.r18);
 function showHitokoto(){
-    $.post("https://api.fczbl.vip/hitokoto/",function(result){
+    $.get("https://v1.hitokoto.cn/?encode=text",function(result){
         showMessage(result);
     });
 }
