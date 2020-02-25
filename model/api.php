@@ -1,7 +1,7 @@
 <?php
 //----------------可设置项----------------
 
-//默认模型 ID，0~18 数字，对应下面的模型列表
+//默认模型 ID，0~19 数字，对应下面的模型列表
 $default_id = NULL;
 //是否允许出现全裸模型
 $r18 = false;
@@ -32,6 +32,7 @@ $modellist = array(
     "2019.deluxe"           => array("texture_01.png","texture_02.png",array("texture_03_1.png","texture_03_2.png")),
     "2019.summer"           => array("texture_01.png","texture_02.png","texture_03.png"),
     "2019.bls"              => array("texture_01.png","texture_02.png","texture_03.png"),
+    "2020.newyear"          => array("texture_01.png","texture_02.png","texture_03.png"),
     "2018.playwater"        => array("texture_01.png","texture_02.png","texture_03.png")
 );
 $modelname = array_keys($modellist);
